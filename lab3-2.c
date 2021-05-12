@@ -15,14 +15,7 @@ double max=0.0;
 double quant_error=0.5;
 int up_polka=0.0;
 int down_polka=0.0;
-void Write_data_to_file(){
-    FILE * pCODE;
-    pCODE=fopen("C:\\tmp\\TSANILab3-2\\AnalogcodeACP.txt","w");
-    for(int i = 0;i<5;i++){
-        fprintf(pCODE,"%f\n",2.02);
-    }
-    fclose(pCODE);
-}
+
 
 
 void Read_data_from_file(){
@@ -76,10 +69,6 @@ void Scale_error(){
     up_polka=j;
     scale=(ideal_to_1023 - perfectACPvolt[j]);
     real_to_1023 =perfectACPvolt[j];
-    //double scale=(ideal_to_1023 - perfectACPvolt[j+1]);
- // printf("%f\n",scale/LSB);
-   // printf("%f\n",ideal_to_1023);
-   // printf("%f\n",perfectACPvolt[j]);
 }
 
 void without_scale(){
@@ -112,6 +101,5 @@ int main (int argc, char *argv[]) {
     Scale_error();
     without_scale();
     integral_error();
-//    Write_data_to_file();
     return 0;
 }
